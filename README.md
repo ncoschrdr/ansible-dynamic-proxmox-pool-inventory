@@ -10,7 +10,7 @@ Prerequisites:
 - Since the Playbook only fetches the name from proxmox the vm/ct name has to be identical to the hostname.
 
 How to use:
-Copy the files to your ansible host, and run the first playbook to update the hosts and the second one (optional) to update the hosts in the Inventory.
+Copy the files to your ansible host and run the first playbook to update the hosts and the second one (optional) to update the hosts in the Inventory (Edit the file proxmox-host and add your hostname and ip/hostname from your proxmox host before)
 
 ansible-playbook ./update-pve-inventory.yml -i ./proxmox-host
 
