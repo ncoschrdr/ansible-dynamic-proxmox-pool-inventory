@@ -4,12 +4,12 @@
   tasks:
   - name: Getting host names from pool "ansible_ubuntu"
     shell: pvesh get /pools/ansible_ubuntu --output-format yaml | grep "name:" | tr -d "[:blank:]" | cut -d":" -f2 > /tmp/inventory.txt
-  - name: Ansible blockinfile insertafter and insertbefore
+  - name: Add "[ansible_ubuntu]" hosts identifier in the inventory file
     lineinfile:
       path: /tmp/inventory.txt
       insertbefore: BOF
       line: "[ansible_ubuntu]"
-  - name: getting the data home
+  - name: Copy the Inventory file to the ansible host.
     ansible.builtin.fetch:
       src: /tmp/inventory.txt
       dest: ./inventory.txt
